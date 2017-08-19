@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         tipControl.setTitle(defaults.string(forKey: "option2Name"), forSegmentAt: 1)
         tipControl.setTitle(defaults.string(forKey: "option3Name"), forSegmentAt: 2)
         print("View Did Load")
+        
+        billField.becomeFirstResponder()
     }
     
     func calculateTip(){
@@ -83,8 +85,7 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("view will disappear")
-        
-    }
+            }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
