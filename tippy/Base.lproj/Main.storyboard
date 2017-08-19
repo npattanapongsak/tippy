@@ -86,8 +86,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lhM-6n-RrL">
-                                <rect key="frame" x="266" y="292" width="11" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lhM-6n-RrL">
+                                <rect key="frame" x="249" y="292" width="28" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -137,6 +137,7 @@
                         <outlet property="tipControl" destination="zMM-0R-yjK" id="QIr-li-TUY"/>
                         <outlet property="tipLabel" destination="jcx-il-xK3" id="YXh-ST-arz"/>
                         <outlet property="totalLabel" destination="9gA-YT-1dK" id="wVR-Q5-amc"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="4Wm-wo-3cb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

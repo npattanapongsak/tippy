@@ -17,18 +17,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var eachPay: UILabel!
     
+    @IBOutlet var mainView: UIView!
+    
     @IBOutlet weak var numPeople: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
         let defaults = UserDefaults.standard // Swift 3 syntax, previously NSUserDefaults.standardUserDefaults()
+        let locale = Locale.current
+        let currencySymbol = locale.currencySymbol!
+        
         defaults.set(18, forKey: "option1Value")
         defaults.set(20, forKey: "option2Value")
         defaults.set(25, forKey: "option3Value")
         
         defaults.set(1, forKey: "numPeople")
-        
+    
         defaults.set("18%", forKey: "option1Name")
         defaults.set("20%",forKey: "option2Name")
         defaults.set("25%",forKey: "option3Name")
@@ -41,7 +46,14 @@ class ViewController: UIViewController {
         print("View Did Load")
         
         billField.becomeFirstResponder()
+        eachPay.text = String(format: "%@%@",currencySymbol,"0.00")
+        tipLabel.text = String(format: "%@%@", currencySymbol,"0.00")
+        totalLabel.text = String(format: "%@%@", currencySymbol,"0.00")
+       
     }
+    
+    
+
     
     func calculateTip(){
         let defaults = UserDefaults.standard
@@ -55,10 +67,16 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         // tipControl.segme
+        let locale = Locale.current
+        let currencySymbol = locale.currencySymbol!
+
         
-        eachPay.text = String(format: "$%.2f",Double(total)/Double(defaults.integer(forKey: "numPeople")))
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        eachPay.text = String(format: "%@%.2f",currencySymbol,Double(total)/Double(defaults.integer(forKey: "numPeople")))
+        tipLabel.text = String(format: "%@%.2f", currencySymbol,tip)
+        totalLabel.text = String(format: "%@%.2f", currencySymbol,total)
+        
+        
+        print(currencySymbol);
 
     }
     
@@ -85,7 +103,7 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("view will disappear")
-            }
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
